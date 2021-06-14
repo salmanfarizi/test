@@ -1,0 +1,21 @@
+---
+- name: test rule
+  hosts: localhost
+  tasks:
+  - panos_security_rule:
+      ip_address: '10.1.101.83'
+      username: 'admin'
+      password: 'P@ssw0rd'
+      operation: 'add'
+      rule_name: 'Allow All .108'
+      description: 'Allow Traffic for Segmen .108'
+      source_zone: ['L3-Trust']
+      destination_zone: ['L3-Untrust']
+      source_ip: ['any']
+      source_user: ['any']
+      destination_ip: ['any']
+      category: ['any']
+      application: ['any']
+      service: ['any']
+      hip_profiles: ['any']
+      action: 'allow'
